@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
+@import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: #675BF1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-wrap {
+  padding-top: 12px;
+  width: 90%;
+  margin: 0 auto;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-wrap .row {
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left .btn {
+  border: 2px solid #ffffff;
+  width: 100%;
+  max-width: 201px;
+  height: 50px;
+  background-color: #675BF1;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "Roboto";
+  font-style: normal;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.header-left .btn:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+
+.header-right {
+  display: flex;
+  gap: 12px;
+}
+.header-right .btn {
+  border: 2px solid #ffffff;
+  width: 100%;
+  max-width: 100px;
+  height: 50px;
+  background-color: #675BF1;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "Roboto";
+  font-style: normal;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.header-right .btn:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+.header-right .input {
+  width: 100%;
+  max-width: 500px;
+  height: 44px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #ffffff;
+  background: rgba(134, 128, 199, 0.5);
+  border: 2px solid #ffffff;
+  outline: none;
+  border-radius: 10px 0px 0px 10px;
+  padding-left: 10px;
+}
+
+.navbar {
+  background-color: #f88f14;
+  height: calc(100vh - 80px);
+  width: 150px;
+}
+.navbar .list .item {
+  width: 100%;
+  height: 40px;
+  border-bottom: 2px solid #ffffff;
+  text-align: center;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.navbar .list .item a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
   color: white;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/*# sourceMappingURL=App.css.map */
