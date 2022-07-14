@@ -1,0 +1,25 @@
+@mixin row($justify, $align) {
+  display: flex;
+  width: 100%;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin btn($width, $height, $backgroundColor) {
+  border: 2px solid #ffffff;
+  width: 100%;
+  max-width: $width;
+  height: $height;
+  background-color: $backgroundColor;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "Roboto";
+  font-style: normal;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  &:hover {
+    opacity: 0.5;
+    cursor: pointer;
+    transform: translateY(-5px) ;
+  }
+}
