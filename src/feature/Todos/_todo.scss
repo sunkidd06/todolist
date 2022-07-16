@@ -1,0 +1,44 @@
+@import "../../sass/common";
+@import "../../sass/variable";
+
+.todo {
+  width: 250px;
+  //   height: 150px;
+  border: 2px solid #675bf1;
+  border-radius: 10px;
+}
+.details {
+  margin: 0 12px 0 12px;
+  padding: 15px 0 8px 0;
+  font-weight: 400;
+  border-bottom: 2px solid #675bf1;
+  .title {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+  }
+  .status {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+.description {
+  margin: 8px 12px 0 12px;
+  .title {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+  }
+  .desc {
+    padding-bottom: 8px;
+  }
+}
