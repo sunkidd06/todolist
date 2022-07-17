@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 export const Sidebar = () => {
   let activeStyle = {
     textDecoration: "underline",
+    color: "#675BF1",
   };
 
   return (
