@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "antd";
 
-export const SingleTodo = () => {
+export const SingleTodo = (props) => {
   /* 
     {
   xs: '480px',
@@ -18,28 +18,39 @@ export const SingleTodo = () => {
   //   width: "200px",
   //   minHeight: "150px",
   // };
+  const { todo } = props;
+  let colorStatus =
+    todo.status === "New" 
+      ? "#04BE00"
+      : todo.status === "Doing" 
+      ? "#F88F14"
+      : "#675BF1";
+
   return (
     <>
-      
-        <Col xl={6} lg={8} md={8} className="gutter-row">
-          <div className="todo">
-            <div className="details">
-              <div className="title">
-                <span>Title: Task 1</span>
-              </div>
-              <div className="create">
-                <span>Creator: Dat Vo</span>
-              </div>
-              <div className="status">
-                <span style={{color:'#04BE00'}}>Status: New</span>
-              </div>
+      <Col xl={6} lg={8} md={8} className="gutter-row">
+        <div className="todo">
+          <div className="details">
+            <div className="title">
+              <span>Title: {todo.title}</span>
             </div>
-            <div className="description">
-              <p className="title">Description:</p>
-              <p className= "desc">This is a task. This is a task This is a task</p>
+            <div className="create">
+              <span>Creator: {todo.create}</span>
+            </div>
+            <div className="status">
+              <span style={{ color: `${colorStatus + ""}` }}>
+                Status:{` ${todo.status}`}
+              </span>
             </div>
           </div>
-        </Col>
+          <div className="description">
+            <p className="title">Description:</p>
+            <p className="desc">
+              {todo.description}
+            </p>
+          </div>
+        </div>
+      </Col>
     </>
   );
 };

@@ -1,18 +1,18 @@
 import React from "react";
-import { SingleTodo } from "../../feature/Todos/SingleTodo";
+// import { SingleTodo } from "../../feature/Todos/SingleTodo";
 import { Header } from "../Header/Header";
-import { Navbar } from "../Navbar/Navbar";
-import { Layout } from "antd";
-import { Col, Divider, Row } from "antd";
+import { Sidebar } from "../Sidebar/Sidebar";
+// import { Layout } from "antd";
+import { Col, Row } from "antd";
 import { Todos } from "../../feature/Todos";
 export const Home = () => {
-  const { Footer, Sider, Content } = Layout;
+  // const { Footer, Sider, Content } = Layout;
   return (
     <>
       <Header />
       <Row>
         <Col flex="150px">
-          <Navbar />
+          <Sidebar />
         </Col>
         <Col flex="auto">
           <Todos />
