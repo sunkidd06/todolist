@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { SingleTodo } from '../Todos/SingleTodo';
 export const NewTask = () => {
   const todos = useSelector(state => state.todos);
-  // console.log(todos);
   const newTodos = todos.filter((todo, index) =>
     todo.status === "New"
   );
@@ -26,4 +25,5 @@ export const NewTask = () => {
         </Col>
       </Row></>
   )
-}
+} 
+

@@ -1,6 +1,6 @@
 import { Row } from 'antd';
 import React, { useEffect } from 'react';
-import { useGetTodosQuery } from '../../api/apiSlice';
+import { useGetTodosQuery } from '../../api/todoAPI';
 import { SingleTodo } from './SingleTodo';
 import { useDispatch } from 'react-redux';
 import { setTodos } from "../../redux/todoSlice";
@@ -18,7 +18,7 @@ export const Todos = () => {
     }, [isSuccess]);
     return (
         <Row className="gutter-box">
-            {isLoading && <p>Loadding...................</p>}
+            {isLoading && <p>Loading...................</p>}
             {isSuccess && todos &&(
                 todos.map((todo, index) => (
                     <SingleTodo key={index} todo={todo} />

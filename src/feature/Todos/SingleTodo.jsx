@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
+import { Link } from "react-router-dom";
 
 export const SingleTodo = (props) => {
   /* 
@@ -12,23 +13,19 @@ export const SingleTodo = (props) => {
   xxl: '1600px',
 }
   */
-  // const style = {
-  //   background: "#0092ff",
-  //   padding: "8px 0",
-  //   width: "200px",
-  //   minHeight: "150px",
-  // };
+
   const { todo } = props;
   let colorStatus =
-    todo.status === "New" 
+    todo.status === "New"
       ? "#04BE00"
-      : todo.status === "Doing" 
+      : todo.status === "Doing"
       ? "#F88F14"
       : "#675BF1";
 
   return (
     <>
       <Col xl={6} lg={8} md={8} className="gutter-row">
+        <Link to={`/todos/${todo.id}`}>
         <div className="todo">
           <div className="details">
             <div className="title">
@@ -50,6 +47,7 @@ export const SingleTodo = (props) => {
             </p>
           </div>
         </div>
+        </Link>
       </Col>
     </>
   );

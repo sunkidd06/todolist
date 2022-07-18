@@ -6,10 +6,9 @@ import { useSelector } from "react-redux";
 import { SingleTodo } from '../Todos/SingleTodo';
 export const DoingTask = () => {
     const todos = useSelector(state => state.todos);
-    const newTodos = todos.filter((todo, index) =>
+    const doingTodos = todos.filter((todo, index) =>
         todo.status === "Doing"
     );
-    console.log(newTodos);
     return (
         <>
             <Header />
@@ -19,7 +18,7 @@ export const DoingTask = () => {
                 </Col>
                 <Col flex="auto">
                     <Row className="gutter-box">
-                        {newTodos.length > 0 ? newTodos?.map((todo, index) => (
+                        {doingTodos.length > 0 ? doingTodos?.map((todo, index) => (
                             <SingleTodo key={index} todo={todo} />
                         )) : (<p>No todos found</p>)}
                     </Row>

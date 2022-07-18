@@ -1,7 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import todoSlice from "./todoSlice";
-import { apiSlice } from "../api/apiSlice";
+import { apiSlice } from "../api/todoAPI";
 import {setupListeners} from "@reduxjs/toolkit/query/react";
+
 export const store = configureStore({
     reducer: {
         [apiSlice.reducerPath]: apiSlice.reducer,
