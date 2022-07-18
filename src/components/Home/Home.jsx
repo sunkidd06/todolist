@@ -1,20 +1,17 @@
+import { Col, Row } from "antd";
 import React from "react";
-// import { SingleTodo } from "../../feature/Todos/SingleTodo";
+import { Todos } from "../../feature/Todos";
 import { Header } from "../Header/Header";
 import { Sidebar } from "../Sidebar/Sidebar";
-// import { Layout } from "antd";
-import { Col, Grid, Row } from "antd";
-import { Todos } from "../../feature/Todos";
 export const Home = () => {
-  // const { Footer, Sider, Content } = Layout;
   return (
     <>
       <Header />
         <Row>
-          <Col flex="150px">
+          <Col span={4} >
             <Sidebar />
           </Col>
-          <Col flex="auto">
+          <Col span={20}>
             <Todos />
           </Col>
         </Row>

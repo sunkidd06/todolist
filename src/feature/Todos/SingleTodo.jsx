@@ -24,7 +24,7 @@ export const SingleTodo = (props) => {
 
   return (
     <>
-      <Col xl={6} lg={8} md={8} className="gutter-row">
+      <Col xl={6} lg={8} md={12} className="gutter-row">
         <Link to={`/todos/${todo.id}`}>
         <div className="todo">
           <div className="details">

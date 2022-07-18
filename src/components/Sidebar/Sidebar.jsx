@@ -7,8 +7,8 @@ export const Sidebar = () => {
   };
 
   return (
-    <div className="container">
-      <div className="navbar">
+    <div className="container" >
+      <div className="navbar" style={{width: "100%"}}>
         <ul className="list">
           <li className="item">
             <NavLink
