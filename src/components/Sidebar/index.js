@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { SITE_MAP } from "../../constants/Path";
 export const Sidebar = () => {
   let activeStyle = {
     textDecoration: "underline",
@@ -12,7 +13,7 @@ export const Sidebar = () => {
         <ul className="list">
           <li className="item">
             <NavLink
-              to="/todos"
+              to={SITE_MAP.HOME}
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               All Task
@@ -20,7 +21,7 @@ export const Sidebar = () => {
           </li>
           <li className="item">
             <NavLink
-              to="/newtask"
+              to={SITE_MAP.NEW_TASK}
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               New Task
@@ -28,7 +29,7 @@ export const Sidebar = () => {
           </li>
           <li className="item">
             <NavLink
-              to="/doingtask"
+              to={SITE_MAP.DOING_TASK}
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               Doing Task
@@ -36,7 +37,7 @@ export const Sidebar = () => {
           </li>
           <li className="item">
             <NavLink
-              to="/donetask"
+              to={SITE_MAP.DONE_TASK}
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               Done Task

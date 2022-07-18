@@ -1,8 +1,8 @@
 import { Col, Row } from "antd";
 import React from "react";
 import { Todos } from "../../feature/Todos";
-import { Header } from "../Header/Header";
-import { Sidebar } from "../Sidebar/Sidebar";
+import { Header } from "../Header";
+import { Sidebar } from "../Sidebar";
 export const Home = () => {
   return (
     <>

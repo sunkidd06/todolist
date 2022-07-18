@@ -1,6 +1,6 @@
 import React from 'react'
-import { Header } from "../../components/Header/Header";
-import { Sidebar } from "../../components/Sidebar/Sidebar";
+import { Header } from "../../components/Header";
+import { Sidebar } from "../../components/Sidebar";
 import { Col, Row } from "antd";
 import { SingleTodo } from '../Todos/SingleTodo';
 import { useGetDoneTodosQuery } from '../../api/todoAPI';
@@ -17,7 +17,8 @@ export const DoneTask = () => {
                 </Col>
                 <Col span={20}>
                     {isLoading && (<p>Loading.......</p>)}
-                    {isSuccess && (<Row className="gutter-box">
+                    {isSuccess && (<Row className="gutter-box"
+                    style={{marginTop:"80px"}}>
                         {doneTodos.length > 0 ? doneTodos?.map((todo, index) => (
                             <SingleTodo key={index} todo={todo} />
                         )) : (<p>No todos found</p>)}

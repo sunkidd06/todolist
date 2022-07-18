@@ -19,6 +19,10 @@
 .env.production.local
 package.json
 package-lock.json
+src/index.css
+src/jsconfig.json
+src/data/db.json
+
 
 npm-debug.log*
 yarn-debug.log*

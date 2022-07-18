@@ -1,13 +1,12 @@
 import { Col, Row } from "antd";
 import { useGetNewTodosQuery } from '../../api/todoAPI';
-import { Header } from "../../components/Header/Header";
-import { Sidebar } from "../../components/Sidebar/Sidebar";
+import { Header } from "../../components/Header";
+import { Sidebar } from "../../components/Sidebar";
 import { SingleTodo } from '../Todos/SingleTodo';
 
 export const NewTask = () => {
-   
+
     const { data: newtodos, isLoading, isSuccess, isError, error } = useGetNewTodosQuery();
-    console.log(newtodos);
     return (
         <>
             <Header />
@@ -17,7 +16,10 @@ export const NewTask = () => {
                 </Col>
                 <Col span={20}>
                     {isLoading && (<p>Loading.......</p>)}
-                    {isSuccess && (<Row className="gutter-box">
+                    {isSuccess && (<Row className="gutter-box"
+                        style={{ marginTop: "80px" }}
+                    >
+
                         {newtodos.length > 0 ? newtodos?.map((todo, index) => (
                             <SingleTodo key={index} todo={todo} />
                         )) : (<p>No todos found</p>)}
