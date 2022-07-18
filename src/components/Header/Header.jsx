@@ -1,4 +1,6 @@
 import React from "react";
+import {Link} from "react-router-dom";
+import { Search } from "./Search";
 export const Header = () => {
   return (
     <div className="container">
@@ -6,14 +8,11 @@ export const Header = () => {
         <div className="header-wrap">
           <div className="row">
             <div className="header-left">
-              <a href="#">
+              <Link to="/todo">
                 <button className="btn btn-create">Create New Task</button>
-              </a>
+              </Link>
             </div>
-            <div className="header-right">
-              <input className="input" placeholder="Type something to search"/>
-              <button className="btn">Search</button>
-            </div>
+            <Search/>
           </div>
         </div>
       </div>

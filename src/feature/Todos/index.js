@@ -1,27 +1,29 @@
-import { Row } from 'antd'
-import React from 'react'
-import { useGetTodosQuery } from '../../api/apiSlice'
-import { SingleTodo } from './SingleTodo'
+import { Row } from 'antd';
+import React, { useEffect } from 'react';
+import { useGetTodosQuery } from '../../api/apiSlice';
+import { SingleTodo } from './SingleTodo';
+import { useDispatch } from 'react-redux';
+import { setTodos } from "../../redux/todoSlice";
 // json-server --watch data/db.json --port 3005;
 
 export const Todos = () => {
-    // const todos = [
-    //     { title: "task 1", creator: "Dat", status: "New", description: "this is a task, this is a task, this is a task" },
-    //     { title: "task 2", creator: "Dat 1", status: "Doing", description: "this is a task, this is a task, this is a task" },
-    //     { title: "task 3", creator: "Dat 2", status: "New", description: "this is a task, this is a task, this is a task" },
-    //     { title: "task 4", creator: "Dat 3", status: "New", description: "this is a task, this is a task, this is a task" },
-    // ]
     const { data: todos, isLoading, isSuccess, isError, error } = useGetTodosQuery();
+    const dispatch = useDispatch();
     console.log(todos);
-
+    useEffect(() => {
+        if (isSuccess) {
+            dispatch(setTodos(todos));
+            console.log("Flag");
+        }
+    }, [isSuccess]);
     return (
         <Row className="gutter-box">
             {isLoading && <p>Loadding...................</p>}
-            {isSuccess && (
+            {isSuccess && todos &&(
                 todos.map((todo, index) => (
                     <SingleTodo key={index} todo={todo} />
                 ))
-           )}
+            )}
         </Row>
     )
 }
