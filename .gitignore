@@ -29,3 +29,12 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 .gitignore
+jsconfig.json
+src/components/Input/style.css.map
+src/sass/index.css
+src/sass/index.css.map
+.gitignore
+package.json
+package-lock.json
+src/sass/index.css.map
+src/sass/index.css

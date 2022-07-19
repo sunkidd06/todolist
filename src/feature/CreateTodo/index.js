@@ -5,6 +5,7 @@ import { Header } from '../../components/Header';
 import { Sidebar } from '../../components/Sidebar';
 import uniqid from 'uniqid';
 import moment from "moment";
+import CreateTodoForm from '../../components/Form';
 
 
 export const CreateTodo = () => {
@@ -20,7 +21,8 @@ export const CreateTodo = () => {
                     <Sidebar />
                 </Col>
                 <Col span={20} style={{ marginTop: "80px" }}>
-                    <button onClick={handleClick}>CLick MEEE</button>
+                    {/* <button onClick={handleClick}>CLick MEEE</button> */}
+                    <CreateTodoForm/>
                 </Col>
             </Row>
         </>

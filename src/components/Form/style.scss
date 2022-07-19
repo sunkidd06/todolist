@@ -1,0 +1,19 @@
+@import "../../sass/common";
+.login_wrap {
+  margin-top: 30vh;
+}
+.login_2 {
+  width: 50%;
+  height: 50%;
+  margin: auto auto;
+  &_wrap {
+  }
+}
+.btn-submit {
+  margin-top: 36px;
+  .btn {
+    @include btn(100px, 50px, #675bf1);
+    border-radius: 10px;
+    margin-left: 12px;
+  }
+}
