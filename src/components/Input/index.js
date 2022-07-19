@@ -19,7 +19,6 @@ export default function LoginInput({ placeholder, bottom, label, ...props }) {
             <label className="label">{label}</label>
             <input
             className ="input"
-                // className={meta.touched && meta.error ? "input_error_boder" : ""}
                 placeholder={placeholder}
                 name={field.name}
                 type={field.type} {...field}

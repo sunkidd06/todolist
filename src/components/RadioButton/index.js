@@ -7,10 +7,10 @@ export const RadioButton = () => {
             <div id="my-radio-group" className="radio-title">Status</div>
             <div role="group" aria-labelledby="my-radio-group">
                 <label className="radio-label">
-                    <Field type="radio" name="status" value="New" />
+                    <Field type="radio" name="status" value="New"  />
                     New
                 </label>
-                <label className="radio-label">
+                <label className="radio-label" >
                     <Field type="radio" name="status" value="Doing" />
                     Doing
                 </label>

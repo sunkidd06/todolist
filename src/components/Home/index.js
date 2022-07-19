@@ -1,4 +1,4 @@
-import { Col, Row } from "antd";
+import { Col, Pagination, Row } from "antd";
 import React from "react";
 import { Todos } from "../../feature/Todos";
 import { Header } from "../Header";
@@ -15,6 +15,7 @@ export const Home = () => {
             <Todos />
           </Col>
         </Row>
+        <Pagination defaultCurrent={1} total={50} style={{marginLeft:"45%"}}/>
     </>
   );
 };

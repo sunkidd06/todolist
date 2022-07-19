@@ -21,10 +21,10 @@ export const CreateTodo = () => {
                     <Sidebar />
                 </Col>
                 <Col span={20} style={{ marginTop: "80px" }}>
-                    {/* <button onClick={handleClick}>CLick MEEE</button> */}
                     <CreateTodoForm/>
                 </Col>
             </Row>
         </>
     )
 }
+

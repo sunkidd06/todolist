@@ -5,11 +5,11 @@ export const apiSlice = createApi({
         // baseUrl: process.env.baseUrl,
         baseUrl: "http://localhost:3005/",
     }),
-    tagTypes:['Todos'], 
+    tagTypes: ['Todos'],
     endpoints: (builders) => ({
         getTodos: builders.query({
             query: () => "/todos",
-            transformResponse: res => res.sort((a,b) => b.create_At - a.create_At),
+            transformResponse: res => res.sort((a, b) => b.create_At - a.create_At),
             providesTags: ['Todos']
         }),
         getNewTodos: builders.query({
@@ -34,12 +34,21 @@ export const apiSlice = createApi({
         }),
         updateTodo: builders.mutation({
             query: (todo) => ({
-                url: `/todo/${todo.id}`,
+                url: `/todos/${todo.id}`,
                 method: "PATCH",
                 body: todo
-            })
+            }),
+            invalidatesTags: ['Todos']
+        }),
+        deleteTodo: builders.mutation({
+            query: (todo) => ({
+                url: `/todos/${todo.id}`,
+                method: "DELETE",
+                body: todo
+            }),
+            invalidatesTags: ['Todos']
         })
     })
 })
 
-export const { useGetTodosQuery, useGetNewTodosQuery, useGetDoneTodosQuery, useGetDoingTodosQuery, useGetTodoQuery, useAddTodoMutation, useUpdateTodoMutation } = apiSlice; 
+export const { useGetTodosQuery, useGetNewTodosQuery, useGetDoneTodosQuery, useGetDoingTodosQuery, useGetTodoQuery, useAddTodoMutation, useUpdateTodoMutation, useDeleteTodoMutation} = apiSlice; 
