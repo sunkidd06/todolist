@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { SITE_MAP } from "../../constants/Path";
+import { NAV_LINKS } from "../../constants/NavLink";
 export const Sidebar = () => {
   let activeStyle = {
     textDecoration: "underline",
@@ -9,42 +9,20 @@ export const Sidebar = () => {
 
   return (
     <div className="container" >
-      <div className="navbar" style={{width: "100%"}}>
+      <div className="navbar" style={{ width: "100%" }}>
         <ul className="list">
-          <li className="item">
-            <NavLink
-              to={SITE_MAP.HOME}
-              style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            >
-              All Task
-            </NavLink>
-          </li>
-          <li className="item">
-            <NavLink
-              to={SITE_MAP.NEW_TASK}
-              style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            >
-              New Task
-            </NavLink>
-          </li>
-          <li className="item">
-            <NavLink
-              to={SITE_MAP.DOING_TASK}
-              style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            >
-              Doing Task
-            </NavLink>
-          </li>
-          <li className="item">
-            <NavLink
-              to={SITE_MAP.DONE_TASK}
-              style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            >
-              Done Task
-            </NavLink>
-          </li>
+          {NAV_LINKS.map((navlink, index) => (
+            <li key={index} className="item">
+              <NavLink to={navlink.LINK_TO}
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+                  {navlink.NAME}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
   );
 };
+
+
