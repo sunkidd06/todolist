@@ -32,7 +32,7 @@ export const SingleTodo = (props) => {
               <span>Title: {todo.title}</span>
             </div>
             <div className="create">
-              <span>Creator: {todo.create}</span>
+              <span>Creator: {todo.creator}</span>
             </div>
             <div className="status">
               <span style={{ color: `${colorStatus + ""}` }}>

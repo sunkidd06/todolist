@@ -5,9 +5,12 @@ export const apiSlice = createApi({
         // baseUrl: process.env.baseUrl,
         baseUrl: "http://localhost:3005/",
     }),
+    tagTypes:['Todos'], 
     endpoints: (builders) => ({
         getTodos: builders.query({
-            query: () => "/todos"
+            query: () => "/todos",
+            transformResponse: res => res.sort((a,b) => b.create_At - a.create_At),
+            providesTags: ['Todos']
         }),
         getNewTodos: builders.query({
             query: () => "/todos?status=New"
@@ -26,7 +29,8 @@ export const apiSlice = createApi({
                 url: "/todos",
                 method: "POST",
                 body: todo
-            })
+            }),
+            invalidatesTags: ['Todos']
         }),
         updateTodo: builders.mutation({
             query: (todo) => ({

@@ -1,37 +1,52 @@
 import { Form, Formik, Field } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
+import { useAddTodoMutation } from "../../api/todoAPI";
 import Input from '../Input';
 import { RadioButton } from "../RadioButton";
 import "./style.scss";
+import uniqid from 'uniqid';
+import moment from "moment";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 export default function CreateTodoForm(props) {
+    const [addTodo] = useAddTodoMutation();
+    const navigate = useNavigate();
+    // Get todo with id form URL
     const { idTodo } = props;
+ 
+    // 
     const [newTodo, setNewTodo] = useState({
         title: "",
         creator: "",
-        createdAt: "",
+        created_At: new Date(),
         status: "New",
         description: ""
     });
-    const [editTodo, setEditTodo] = useState({
-        title: "",
-        creator: "",
-        createdAt: "",
-        status: "",
-        description: ""
-    });
-    const { title, creator, createdAt, description } = newTodo;
+    const { title, creator, created_At, description, status } = newTodo;
+    // handle change
     const handleTodoChange = (e) => {
         const { value, name } = e.target;
-
         setNewTodo({ ...newTodo, [name]: value })
     }
-    console.log(newTodo);
+    // ADD todo
+    const addNewTodo = (e) => {
+        addTodo({ id: uniqid(), title, creator, status, description, created_At: moment().format() });
+        setNewTodo({
+            title: "",
+            creator: "",
+            created_At: new Date(),
+            status: "New",
+            description: ""
+        })
+        navigate("/");
+    }
+    // validate with Yub
     const TodoValidation = Yup.object({
         title: Yup.string()
             .required("Title is required.")
             .min(3, "Title too short")
-            .max(20, "Title too long"),
+            .max(10, "Title too long"),
         creator: Yup.string()
             .required("Creator is required.")
             .max(25)
@@ -45,7 +60,7 @@ export default function CreateTodoForm(props) {
                         <Formik
                             enableReinitialize
                             initialValues={{
-                                title, creator, createdAt, description
+                                title, creator, created_At, description, status
                             }}
                             validationSchema={TodoValidation}
                         >
@@ -57,7 +72,7 @@ export default function CreateTodoForm(props) {
                                         <Input type="text" placeholder={new Date()} value={new Date()} name="createdAt" onChange={handleTodoChange} bottom label="Created at" />
                                         <Input type="text" placeholder="Name of creator" name="description" onChange={handleTodoChange} bottom label="Description" />
                                         {!idTodo && (<div className="btn-submit">
-                                            <button type="submit" className="save_btn btn">Save</button>
+                                            <button onClick={addNewTodo} className="save_btn btn">ADD</button>
                                         </div>)}
                                         {idTodo && (<>
                                             <RadioButton />
