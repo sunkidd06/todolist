@@ -8,8 +8,13 @@ export const apiSlice = createApi({
     tagTypes: ['Todos'],
     endpoints: (builders) => ({
         getTodos: builders.query({
-            query: () => "/todos",
-            transformResponse: res => res.sort((a, b) => b.create_At - a.create_At),
+            query: (params) => {
+                return {
+                    url: "/todos",
+                    params: params ? params : "" 
+                }
+            },
+            // transformResponse: res => res.sort((a, b) => b.create_At - a.create_At),
             providesTags: ['Todos']
         }),
         getNewTodos: builders.query({
@@ -52,3 +57,4 @@ export const apiSlice = createApi({
 })
 
 export const { useGetTodosQuery, useGetNewTodosQuery, useGetDoneTodosQuery, useGetDoingTodosQuery, useGetTodoQuery, useAddTodoMutation, useUpdateTodoMutation, useDeleteTodoMutation} = apiSlice; 
+

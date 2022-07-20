@@ -7,8 +7,9 @@ import { setTodos } from '../../redux/todoSlice';
 import { Skeleton } from 'antd';
 // json-server --watch data/db.json --port 3005;
 
-export const Todos = () => {
-    const { data: todos, isLoading, isSuccess } = useGetTodosQuery();
+export const Todos = ({ status }) => {
+    const params = status ? status : "";
+    const { data: todos, isLoading, isSuccess } = useGetTodosQuery(params);
     const dispatch = useDispatch();
     useEffect(() => {
         if (isSuccess) {
@@ -23,6 +24,8 @@ export const Todos = () => {
                     <SingleTodo key={index} todo={todo} />
                 ))
             )}
+            {todos?.length === 0 && (<p>
+                No todo founddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>)}
         </Row>
     )
 }
