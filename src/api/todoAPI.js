@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apiSlice = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({
-        // baseUrl: process.env.baseUrl,
+        // baseUrl: process.env.REACT_APP_API,
         baseUrl: "http://localhost:3005/",
     }),
     tagTypes: ['Todos'],
