@@ -1,29 +1,31 @@
-import React from 'react'
-import { Header } from "../../components/Header/Header";
-import { Sidebar } from "../../components/Sidebar/Sidebar";
 import { Col, Row } from "antd";
-import { useSelector } from "react-redux";
+import { useGetNewTodosQuery } from '../../api/todoAPI';
+import { Header } from "../../components/Header";
+import { Sidebar } from "../../components/Sidebar";
 import { SingleTodo } from '../Todos/SingleTodo';
+
 export const NewTask = () => {
-  const todos = useSelector(state => state.todos);
-  const newTodos = todos.filter((todo, index) =>
-    todo.status === "New"
-  );
-  return (
-    <>
-      <Header />
-      <Row>
-        <Col flex="150px">
-          <Sidebar />
-        </Col>
-        <Col flex="auto">
-          <Row className="gutter-box">
-            {newTodos.length > 0 ? newTodos?.map((todo, index) => (
-              <SingleTodo key={index} todo={todo} />
-            )) : (<p>No todos found</p>)}
-          </Row>
-        </Col>
-      </Row></>
-  )
-} 
+
+    const { data: newtodos, isLoading, isSuccess, isError, error } = useGetNewTodosQuery();
+    return (
+        <>
+            <Header />
+            <Row>
+                <Col span={4}>
+                    <Sidebar />
+                </Col>
+                <Col span={20}>
+                    {isLoading && (<p>Loading.......</p>)}
+                    {isSuccess && (<Row className="gutter-box"
+                        style={{ marginTop: "80px" }}
+                    >
+
+                        {newtodos.length > 0 ? newtodos?.map((todo, index) => (
+                            <SingleTodo key={index} todo={todo} />
+                        )) : (<p>No todos found</p>)}
+                    </Row>)}
+                </Col>
+            </Row></>
+    )
+}
 
