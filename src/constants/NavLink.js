@@ -6,14 +6,3 @@ export const NAV_LINKS = [
     { LINK_TO: SITE_MAP.DONE_TASK, NAME: "Done Task" },
 ]
 
-/* 
-<li className="item">
-            <NavLink
-              to={SITE_MAP.HOME}
-              style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            >
-              All Task
-            </NavLink>
-          </li>
-
-*/

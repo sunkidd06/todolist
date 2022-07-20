@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "antd";
 import { Link } from "react-router-dom";
-
+import "./_todo.scss";
 export const SingleTodo = (props) => {
   /* 
     {
@@ -32,7 +32,7 @@ export const SingleTodo = (props) => {
               <span>Title: {todo.title}</span>
             </div>
             <div className="create">
-              <span>Creator: {todo.create}</span>
+              <span>Creator: {todo.creator}</span>
             </div>
             <div className="status">
               <span style={{ color: `${colorStatus + ""}` }}>

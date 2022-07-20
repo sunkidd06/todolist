@@ -38,3 +38,14 @@ package.json
 package-lock.json
 src/sass/index.css.map
 src/sass/index.css
+src/data/db.json
+src/data/db.json
+src/data/db.json
+src/sass/index.css.map
+.gitignore
+src/components/RadioButton/style.css.map
+src/components/RadioButton/style.css
+src/sass/index.css.map
+src/sass/_navbar.scss
+src/sass/index.css.map
+src/sass/index.css

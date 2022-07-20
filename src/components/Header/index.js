@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Search } from "./Search";
 export const Header = () => {
   return (
@@ -12,7 +12,12 @@ export const Header = () => {
                 <button className="btn btn-create">Create New Task</button>
               </Link>
             </div>
-            <Search/>
+            <div className="header-right">
+              <input className="input" placeholder="Type something to search" />
+              <button className="btn" >
+                Search
+              </button>
+            </div>
           </div>
         </div>
       </div>
