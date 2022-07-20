@@ -19,10 +19,10 @@ export default function CreateTodoForm(props) {
     const { idTodo } = props;
     const todos = useSelector(state => state.todos);
     const editTodo = todos.find(todo => todo.id === idTodo);
-    
+
     // 
     const [newTodo, setNewTodo] = useState({
-        title: editTodo ? editTodo.creator : "",
+        title: editTodo ? editTodo.title : "",
         creator: editTodo ? editTodo.creator : "",
         created_At: editTodo ? editTodo.created_At : new Date(),
         status: "New",
@@ -36,7 +36,7 @@ export default function CreateTodoForm(props) {
     }
     // ADD todo
     const addNewTodo = (e) => {
-        addTodo({ id: uniqid(), title, creator, status, description, created_At: moment().format() });
+        addTodo({ id: uniqid(), title, creator, status, description, created_At: moment(created_At).format('MM/DD/YYYY') });
         setNewTodo({
             title: "",
             creator: "",
@@ -48,7 +48,7 @@ export default function CreateTodoForm(props) {
     }
     // Edit todo
     const handleEditTodo = (e) => {
-        updateTodo({ id: editTodo.id, title, creator, status, description, created_At: moment().format() })
+        updateTodo({ id: editTodo.id, title, creator, status, description, created_At: moment(created_At).format('MM/DD/YYYY') })
         navigate("/");
     }
     // Delete todo
@@ -62,7 +62,7 @@ export default function CreateTodoForm(props) {
         setNewTodo({
             title: "",
             creator: "",
-            created_At: new Date(),
+            created_At: moment(new Date()).format("MMMM Do YYYY, h:mm:ss a"),
             status: "New",
             description: ""
         })
@@ -94,9 +94,9 @@ export default function CreateTodoForm(props) {
                             {
                                 (formikProps) => (
                                     <Form>
-                                        <Input type="text" placeholder={ editTodo ? editTodo.title : "Place holder"} name="title" onChange={handleTodoChange} bottom label="Title" value={title} />
-                                        <Input type="text" placeholder={editTodo ? editTodo.creator  : "Name of creator"} name="creator" onChange={handleTodoChange} bottom label="Creator" value={creator} />
-                                        <Input type="text" placeholder={new Date()} name="createdAt" onChange={handleTodoChange} bottom label="Created at" value={created_At} />
+                                        <Input type="text" placeholder={editTodo ? editTodo.title : "Place holder"} name="title" onChange={handleTodoChange} bottom label="Title" value={title} />
+                                        <Input type="text" placeholder={editTodo ? editTodo.creator : "Name of creator"} name="creator" onChange={handleTodoChange} bottom label="Creator" value={creator} />
+                                        <Input type="text" placeholder={moment(new Date()).format("MMMM Do YYYY, h:mm:ss a")} name="createdAt" onChange={handleTodoChange} bottom label="Created at" value={moment(created_At).format("MMMM Do YYYY, h:mm:ss a")} />
                                         <Input type="text" placeholder={editTodo ? editTodo.description : "Description"} name="description" onChange={handleTodoChange} bottom label="Description" value={description} />
                                         {!idTodo && (<div className="btn-submit">
                                             <button onClick={addNewTodo} className="save_btn btn">ADD</button>
