@@ -49,7 +49,6 @@ export const Home = () => {
        
         </Col>
       </Row>
-      {/* <Pagination defaultCurrent={1} total={80} /> */}
     </>
   );
 };
