@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Todos } from "../../feature/Todos";
 import { Sidebar } from "../Sidebar";
 export const Home = () => {
-  const [status, setStatus] = useState({});
+  const [status, setStatus] = useState("");
   const handleSearch = () => {
 
   }
@@ -17,7 +17,7 @@ export const Home = () => {
   }
   useEffect(() => {
     if (status?.status == "") {
-      setStatus({});
+      setStatus("");
     }
   }, [status])
   // console.log(status);
