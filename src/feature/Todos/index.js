@@ -9,18 +9,13 @@ import { Skeleton } from 'antd';
 
 export const Todos = ({ status }) => {
     const params = status ? status : "";
-    // const params = "New";
-    console.log(params);
     const [current, setCurrent] = useState(1);
-    // const params = "New";
-    // `?_page=${current}&_limit=12&${params}`
-    const { data: todos, isLoading, isSuccess } = useGetTodosQuery(params);
-    // const { data: todos, isLoading, isSuccess } = useGetTodosQuery(`?_page=${current}&_limit=12&%s`,params);
+    const { data: todos, isLoading, isSuccess } = useGetTodosQuery(`?_page=${current}&_limit=12&${params==="" ? "":"status="+params.status}`);
     const { data: allTodo} = useGetTodosQuery("");
     const dispatch = useDispatch();
     useEffect(() => {
         if (isSuccess) {
-            dispatch(setTodos(todos));
+            dispatch(setTodos(allTodo));
         }
     }, [isSuccess]);
     const onChange = (pageNumber) => {
